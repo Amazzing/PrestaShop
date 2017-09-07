@@ -4128,7 +4128,7 @@ class ProductCore extends ObjectModel
     {
         foreach (SpecificPrice::getIdsByProductId((int)$old_product_id) as $data) {
             $specific_price = new SpecificPrice((int)$data['id_specific_price']);
-            if (!$specific_price->duplicate((int)$product_id)) {
+            if (!$specific_price->id_specific_price_rule && !$specific_price->duplicate((int)$product_id)) {
                 return false;
             }
         }
